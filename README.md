@@ -27,7 +27,7 @@ improve the design, I'd love to hear them.
   * Install Node.js dependencies with `npm install`
   * Start Phoenix endpoint with `mix phoenix.server`
 
-Now you can visit [`localhost:4000/play`](http://localhost:4000/play) from your browser.
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## The two clients
 
