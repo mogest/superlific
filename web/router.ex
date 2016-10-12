@@ -16,7 +16,7 @@ defmodule Superlific.Router do
   scope "/", Superlific do
     pipe_through :browser # Use the default browser stack
 
-    get "/play", PlayController, :index
+    get "/", PlayController, :index
   end
 
   # Other scopes may use custom stacks.
