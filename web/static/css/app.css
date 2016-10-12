@@ -1,0 +1,25 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "San Fransisco", "Helvetica Neue", "Segoe UI", "Roboto", sans-serif;
+  background: #f9fbfc;
+}
+
+div.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100%;
+}

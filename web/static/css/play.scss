@@ -1,0 +1,116 @@
+body {
+  user-select: none;
+  -moz-user-select: none;
+  overflow: hidden;
+}
+
+section.game {
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  &.intermission {
+    #grid {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    #entry {
+      visibility: hidden;
+    }
+  }
+
+  #grid {
+    background: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    table {
+      table-layout: fixed;
+      border-collapse: collapse;
+      padding: 0;
+      margin: 0;
+    }
+
+    td {
+      font-size: 28pt;
+      text-align: center;
+      width: 90px;
+      height: 90px;
+      padding: 0;
+      transition: color 10s;
+    }
+
+    &.ending td {
+      color: #700;
+    }
+  }
+
+  .sidebar {
+    flex: 1 0;
+    overflow: auto;
+    padding: 0 2rem;
+    text-align: right;
+  }
+
+  #entry {
+    &.invalid {
+      color: red;
+    }
+
+    &.accepted {
+      color: green;
+    }
+  }
+
+  #metrics {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #points span {
+    font-size: 40pt;
+  }
+
+  #position span {
+    font-size: 40pt;
+  }
+
+  #timer span:first-child {
+    font-size: 40pt;
+  }
+
+  #word-count {
+    margin: 1rem 0 0 0;
+  }
+
+  #word-list {
+    list-style: none;
+    padding: 0;
+    columns: 3;
+
+    .missed, .submitting { color: #aaa; }
+    .unique { font-weight: bold; }
+    .duplicate { text-decoration: line-through; }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  section.game {
+    flex-direction: column-reverse;
+
+    #grid {
+      height: auto;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .sidebar {
+      text-align: left;
+    }
+  }
+}
