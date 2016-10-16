@@ -1,7 +1,7 @@
 defmodule Superlific.RoomChannel do
   use Phoenix.Channel
 
-  intercept ["duplication", "positions"]
+  intercept ["game_state", "duplication", "positions"]
 
   # API
 
@@ -49,6 +49,15 @@ defmodule Superlific.RoomChannel do
       end
     else
       {:noreply, socket}
+    end
+  end
+
+  def handle_out("game_state", msg, socket) do
+    push socket, "game_state", msg
+
+    case msg.state do
+      "live" -> {:noreply, assign(socket, :last_position, nil)}
+      _      -> {:noreply, socket}
     end
   end
 
