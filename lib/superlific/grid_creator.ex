@@ -28,7 +28,7 @@ defmodule Superlific.GridCreator do
   end
 
   defp generate_letter_offset do
-    random_number = :random.uniform(@letter_sum)
+    random_number = :crypto.rand_uniform(0, @letter_sum)
 
     Enum.reduce_while(@indexed_letter_frequencies, random_number, fn {value, index}, acc ->
       if acc < value, do: {:halt, index}, else: {:cont, acc - value}

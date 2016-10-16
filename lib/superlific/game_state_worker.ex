@@ -65,8 +65,6 @@ defmodule Superlific.GameStateWorker do
     ref = Process.send_after(self, :end_game, @game_length)
 
     Task.start_link(fn ->
-      # TODO : need a better seed mechanism
-      :random.seed(:os.system_time)
       grid = Superlific.GridCreator.create
       answers = Superlific.GridSolver.solve(grid, load_dictionary)
       {:ok, players_server} = Superlific.PlayersServer.start_link
