@@ -1,4 +1,4 @@
-import {add} from '../../sorted_immutable_list';
+import add from '../../sorted_tuple';
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -6,13 +6,13 @@ const reducer = (state = [], action) => {
       return [];
 
     case 'UNIQUE_SUBMISSION':
-      return add(state, action.word, 'unique');
+      return add(state, [action.word, 'unique']);
 
     case 'DUPLICATE_SUBMISSION':
-      return add(state, action.word, 'duplicate');
+      return add(state, [action.word, 'duplicate']);
 
     case 'DUPLICATION_REPORTED':
-      return add(state, action.word, 'duplicate');
+      return add(state, [action.word, 'duplicate']);
 
     case 'INTERMISSION_STARTED':
       const map = new Map(state);

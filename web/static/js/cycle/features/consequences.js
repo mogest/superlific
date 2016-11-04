@@ -1,5 +1,5 @@
 import xs from 'xstream';
-import {add as addToList} from '../../sorted_immutable_list';
+import add from '../../sorted_tuple';
 
 const reducers = {
   SUCCESSFUL_GUESS(state, action) {
@@ -7,7 +7,7 @@ const reducers = {
       ...state,
 
       points: action.data.points,
-      wordList: addToList(state.wordList, action.data.request.data.word, 'unique'),
+      wordList: add(state.wordList, [action.data.request.data.word, 'unique']),
       guessOutcome: {
         word: action.data.request.data.word,
         outcome: 'unique',
@@ -19,7 +19,7 @@ const reducers = {
     return {
       ...state,
 
-      wordList: addToList(state.wordList, action.data.request.data.word, 'duplicate'),
+      wordList: add(state.wordList, [action.data.request.data.word, 'duplicate']),
       guessOutcome: {
         word: action.data.request.data.word,
         outcome: 'duplicate',
