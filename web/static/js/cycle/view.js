@@ -8,10 +8,12 @@ function renderTimer(seconds) {
 }
 
 function renderPoints(points) {
-  return div("#points", [
-    span(points + ""),
-    " pt" + (points == 1 ? '' : 's')
-  ]);
+  return (
+    div("#points", [
+      span(points + ""),
+      " pt" + (points == 1 ? '' : 's')
+    ])
+  );
 }
 
 const selectionColours = ["#d6c5b4", "#cba", "#d6ccb5", "#ddb", "#eec", "#eea", "#ee9", "#ee8", "#ee7", "#ee6", "#ee5", "#ee4", "#ee3", "#ee2", "#ee1"];

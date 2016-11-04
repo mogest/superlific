@@ -7,7 +7,7 @@ import "phoenix_html"
 // Uncomment one of the two below to see it in action.
 //
 
-//import play from "./cycle/play"
-import play from "./react/play"
+import play from "./cycle/play"
+//import play from "./react/play"
 
 play();

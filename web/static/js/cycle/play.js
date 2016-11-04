@@ -4,8 +4,7 @@ import {makePhoenixChannelDriver} from './phoenix_channel_driver';
 
 import {Socket} from "phoenix";
 
-import intent from './intent';
-import model from './model';
+import logic from './logic';
 import view from './view';
 
 const socket = new Socket("/socket");
@@ -15,8 +14,7 @@ const token = document.querySelector("meta[name='user-token']").getAttribute("co
 const channel = socket.channel("room:4x4/3", {token: token});
 
 function main(sources) {
-  const actions = intent(sources);
-  const {state$, submitAnswer$} = model(actions);
+  const {state$, submitAnswer$} = logic(sources);
   const vdom$ = view(state$);
 
   return {
